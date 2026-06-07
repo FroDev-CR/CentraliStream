@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,7 +6,7 @@ import { formatCRC, formatDate } from "@/lib/utils";
 import type { Profile } from "@/lib/types";
 
 export default async function ClientesPage() {
-  const supabase = await createClient();
+  const supabase = db();
   const { data } = await supabase
     .from("profiles")
     .select("*")

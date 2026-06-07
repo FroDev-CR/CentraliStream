@@ -9,13 +9,13 @@ export default function Home() {
         </span>
         <nav className="flex items-center gap-3 text-sm">
           <Link
-            href="/login"
+            href="/sign-in"
             className="rounded-lg px-4 py-2 font-medium text-zinc-700 hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
             Ingresar
           </Link>
           <Link
-            href="/login?signup=1"
+            href="/sign-up"
             className="rounded-lg bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-700"
           >
             Crear cuenta
@@ -33,13 +33,13 @@ export default function Home() {
         </p>
         <div className="mt-8 flex gap-3">
           <Link
-            href="/login?signup=1"
+            href="/sign-up"
             className="rounded-xl bg-red-600 px-6 py-3 font-semibold text-white hover:bg-red-700"
           >
             Empezar ahora
           </Link>
           <Link
-            href="/login"
+            href="/sign-in"
             className="rounded-xl border border-zinc-300 px-6 py-3 font-semibold text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
           >
             Ya tengo cuenta

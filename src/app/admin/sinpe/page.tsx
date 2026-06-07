@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { Card } from "@/components/ui/card";
 import { SinpeStatusBadge } from "@/components/admin/status-badges";
@@ -6,7 +6,7 @@ import { formatCRC, formatDate } from "@/lib/utils";
 import type { SinpeMessage } from "@/lib/types";
 
 export default async function SinpePage() {
-  const supabase = await createClient();
+  const supabase = db();
   const { data } = await supabase
     .from("sinpe_messages")
     .select("*")

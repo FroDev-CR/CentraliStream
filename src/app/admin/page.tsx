@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { StatCard } from "@/components/ui/stat-card";
 import { Card, CardHeader } from "@/components/ui/card";
@@ -9,7 +9,7 @@ import Link from "next/link";
 import type { Order } from "@/lib/types";
 
 async function count(table: string, filter?: (q: any) => any) {
-  const supabase = await createClient();
+  const supabase = db();
   let q = supabase.from(table).select("*", { count: "exact", head: true });
   if (filter) q = filter(q);
   const { count } = await q;
@@ -17,7 +17,7 @@ async function count(table: string, filter?: (q: any) => any) {
 }
 
 export default async function AdminDashboard() {
-  const supabase = await createClient();
+  const supabase = db();
 
   const [
     customers,

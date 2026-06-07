@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +15,7 @@ interface RequestRow {
 }
 
 export default async function SolicitudesPage() {
-  const supabase = await createClient();
+  const supabase = db();
   const { data } = await supabase
     .from("service_requests")
     .select("id, type, requested_value, status, created_at, profiles(full_name, email)")

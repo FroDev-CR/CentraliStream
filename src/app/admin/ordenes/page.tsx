@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,7 +18,7 @@ interface OrderRow {
 }
 
 export default async function OrdenesPage() {
-  const supabase = await createClient();
+  const supabase = db();
   const { data } = await supabase
     .from("orders")
     .select(

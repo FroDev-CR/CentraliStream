@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +15,7 @@ interface ProductRow {
 }
 
 export default async function ProductosPage() {
-  const supabase = await createClient();
+  const supabase = db();
   const { data } = await supabase
     .from("products")
     .select("id, name, type, price, duration_days, is_active, services(name, color)")

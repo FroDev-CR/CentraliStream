@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { db } from "@/lib/supabase/db";
 import { PageHeader } from "@/components/admin/page-header";
 import { Card } from "@/components/ui/card";
 import { AccountStatusBadge } from "@/components/admin/status-badges";
@@ -16,7 +16,7 @@ interface AccountRow {
 }
 
 export default async function InventarioPage() {
-  const supabase = await createClient();
+  const supabase = db();
   const { data } = await supabase
     .from("streaming_accounts")
     .select(
